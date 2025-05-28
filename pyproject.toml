@@ -1,0 +1,37 @@
+[project]
+name = "ml_pipeline"
+version = "0.1.0"
+description = "ml pipeline with dagster and LakeFS"
+requires-python = ">=3.12"
+dependencies = [
+    "dagster==1.10.3",
+    "dagster-webserver>=1.10.3",
+    "lakefs>=0.11.0",
+    "lakefs-spec>=0.11.3",
+    "pandas>=2.2.3",
+    "ruff>=0.11.11",
+    "scikit-learn>=1.6.1",
+    "uv-build>=0.7.8",
+    "xgboost>=3.0.2",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "ruff",
+    "pytest",
+]
+
+[tool.dagster]
+module_name = "ml_pipeline.definitions"
+code_location_name = "ml_pipeline"
+
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["ml_pipeline"]
+
+#[build-system]
+#requires = ["uv_build>=0.7.5,<0.8.0"]
+#build-backend = "uv_build"
